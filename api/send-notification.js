@@ -5,7 +5,8 @@
  * - SENDGRID_API_KEY: SendGrid API key (Bearer token)
  * - SENDGRID_TEMPLATE_ID: SendGrid Dynamic Template ID
  * - SENDGRID_FROM_EMAIL: Verified sender email in SendGrid
- * - NOTIFY_TO_EMAIL: Recipient address for notification emails
+ * - NOTIFY_TO_EMAIL: Single recipient address for notification emails (fallback)
+ * - NOTIFY_TO_EMAILS: Comma-separated recipient addresses for multi-recipient notifications
  */
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -17,9 +18,15 @@ module.exports = async function handler(req, res) {
     SENDGRID_TEMPLATE_ID,
     SENDGRID_FROM_EMAIL,
     NOTIFY_TO_EMAIL,
+    NOTIFY_TO_EMAILS,
   } = process.env;
 
-  if (!SENDGRID_API_KEY || !SENDGRID_TEMPLATE_ID || !SENDGRID_FROM_EMAIL || !NOTIFY_TO_EMAIL) {
+  const recipients = (NOTIFY_TO_EMAILS || NOTIFY_TO_EMAIL || '')
+    .split(',')
+    .map((email) => email.trim())
+    .filter(Boolean);
+
+  if (!SENDGRID_API_KEY || !SENDGRID_TEMPLATE_ID || !SENDGRID_FROM_EMAIL || recipients.length === 0) {
     return res.status(500).json({
       success: false,
       error: 'Missing required SendGrid environment variables',
@@ -37,7 +44,7 @@ module.exports = async function handler(req, res) {
       from: { email: SENDGRID_FROM_EMAIL },
       personalizations: [
         {
-          to: [{ email: NOTIFY_TO_EMAIL }],
+          to: recipients.map((email) => ({ email })),
           dynamic_template_data: {
             coupon_title: couponTitle,
             event,

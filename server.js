@@ -44,9 +44,15 @@ async function handleNotification(req, res) {
       SENDGRID_TEMPLATE_ID,
       SENDGRID_FROM_EMAIL,
       NOTIFY_TO_EMAIL,
+      NOTIFY_TO_EMAILS,
     } = process.env;
 
-    if (!SENDGRID_API_KEY || !SENDGRID_TEMPLATE_ID || !SENDGRID_FROM_EMAIL || !NOTIFY_TO_EMAIL) {
+    const recipients = (NOTIFY_TO_EMAILS || NOTIFY_TO_EMAIL || '')
+      .split(',')
+      .map((email) => email.trim())
+      .filter(Boolean);
+
+    if (!SENDGRID_API_KEY || !SENDGRID_TEMPLATE_ID || !SENDGRID_FROM_EMAIL || recipients.length === 0) {
       return sendJson(res, 500, {
         success: false,
         error: 'Missing required SendGrid environment variables',
@@ -64,7 +70,7 @@ async function handleNotification(req, res) {
         from: { email: SENDGRID_FROM_EMAIL },
         personalizations: [
           {
-            to: [{ email: NOTIFY_TO_EMAIL }],
+            to: recipients.map((email) => ({ email })),
             dynamic_template_data: {
               coupon_title: couponTitle,
               event,
