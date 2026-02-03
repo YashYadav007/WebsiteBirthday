@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.1.3/dist/lenis.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/story.js" defer></script>
+  </head>
+  <body class="story-page" data-bg-theme="purple">
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <main class="story-main">
+      <section class="story-hero story-panel">
+        <div class="story-hero__inner">
+          <h1 class="story-hero__title">Our Story</h1>
+          <p class="story-hero__hint">Scroll slowly</p>
+          <span class="story-hero__line" aria-hidden="true"></span>
+          <div class="story-hero__scroll" aria-hidden="true">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+              <path d="M12 5v13" />
+              <path d="m6 13 6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story text starts here: edit chapter title/body copy in each .moment-card -->
+      <section class="story-panel story-moment">
+        <div class="moment-shell">
+          <article class="moment-card">
+            <p class="moment-card__label">Chapter 01</p>
+            <h2 class="moment-card__title">When I first saw you</h2>
+            <p class="moment-card__body">Jab maine tumhe pehli baar dekha, main SPR tha — ProC DNA interview ka time tha, aur tumhari phati hui thi. Sach bolun? Pehli baar shart haar ke mera faida hua tha… because that moment gave me you. Tab se tum meri favorite distraction ho.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-panel story-moment">
+        <div class="moment-shell moment-shell--right">
+          <article class="moment-card">
+            <p class="moment-card__label">Chapter 02</p>
+            <h2 class="moment-card__title">Our first walk together</h2>
+            <p class="moment-card__body">Uske baad main tumse baat karne ka bahana dhoondhne laga. Flirt karne ki koshish toh karta tha, par dhang se ho hi nahi paata tha — dar lagta tha ki kahin tum mujhe chepu na samajh lo. Aur jab tumne pehli baar walk ke liye invite kiya na, main itna khush tha… aur utna hi dara hua bhi, ki tum judge toh nahi karogi. Kya bolun, kya karun — pura system hang. Main legit do baar nahaya tha us din… phir bhi kapde fuddu hi pehen ke gaya. But somehow, you still made that day feel perfect.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-panel story-moment">
+        <div class="moment-shell">
+          <article class="moment-card">
+            <p class="moment-card__label">Chapter 03</p>
+            <h2 class="moment-card__title">That month you were away</h2>
+            <p class="moment-card__body">Phir walk ke baad jo tumne mujhe ignore kiya, bhai… that was the scariest phase. Walk ke kuch din baad hi tum ghar chali gayi, aur usse pehle mujhse na milne ke bahane banne lage. Mujhe toh laga tha tum mere hi wajah se ghar gayi ho. The month you tried to ignore me — and I pretended it didn’t affect me. (It did. A lot.) Lucky for me, main is type ki cheezon mein thoda dumb hoon… isliye baat karta raha. Aur at last, pat gayi meri favorite ladki.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-panel story-moment">
+        <div class="moment-shell moment-shell--right">
+          <article class="moment-card">
+            <p class="moment-card__label">Chapter 04</p>
+            <h2 class="moment-card__title">Our first kiss</h2>
+            <p class="moment-card__body">Phir woh din aaya jab tum ghar se wapas aayi — 25th October. Bhaiiiii, sabse crazy day. Ussi din humari relationship start hui, aur woh moment main kabhi nahi bhool sakta. Our first kiss… tum jo halka sa kaap rahi thi, that look, that pause — sab kuch still replay hota hai dimaag mein. Uske baad tum thodi confuse hui thi, but main full sure tha: I have my Janeman now. And suddenly… there was no confusion anymore. Just us. Aur sach bolun, us din ke baad duniya thodi kam boring aur tum thodi zyada meri lagne lagi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-panel story-moment">
+        <div class="moment-shell">
+          <article class="moment-card">
+            <p class="moment-card__label">Chapter 05</p>
+            <h2 class="moment-card__title">Our Gamebox dates</h2>
+            <p class="moment-card__body">And Gamebox date? One of the best moments, hands down. Tumhare saath pool khelna, Mortal Kombat mein ladna, aur jab main haarta tha toh tumhara victory dance — that was the bestttt. Not fancy. Not planned. Just laughter, chaos, thoda sa drama, and you — which made it perfect.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-panel story-final">
+        <div class="story-final__card">
+          <p class="story-final__lead">Abhi ye story choti si hai…<br />poori life baaki hai isko aur bada,<br />aur interesting, aur best banane ke liye.</p>
+          <p class="story-final__sub">And I can’t wait to write it with you.</p>
+          <div class="together-timer" aria-live="polite">
+            <p class="together-timer__label">Together since 25 October 2025, 9:10 PM</p>
+            <p class="together-timer__value" data-together-timer>000 days 00 hours 00 minutes 00 seconds</p>
+            <p class="together-timer__note">Every second we are closer to our target: infinity.</p>
+          </div>
+          <a class="story-back-home" href="index.html">Back to Home →</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
